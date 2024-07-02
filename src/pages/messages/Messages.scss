@@ -1,0 +1,65 @@
+.messages {
+    display: flex;
+    justify-content: center;
+  
+    .container {
+      display: block;
+      width: 1400px;
+      padding: 50px 0px;
+  
+      .title {
+        display: flex;
+        justify-content: space-between;
+  
+        button {
+          background-color: #4a2ed7;
+          color: white;
+          font-weight: 500;
+          border: none;
+          padding: 10px;
+          cursor: pointer;
+        }
+      }
+  
+      table {
+        width: 100%;
+  
+        tr {
+          height: 100px;
+          th {
+            text-align: left;
+          }
+          td {
+            padding: 10px;
+  
+            &:first-child {
+              font-weight: 500;
+            }
+  
+            &:nth-child(2),
+            &:nth-child(3) {
+              color: gray;
+            }
+          }
+  
+          button {
+            border-radius: 10%;
+            background-color: #4a2ed7;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+          }
+  
+          &:not(:first-child):hover {
+            background-color: #f0f0f0; /* Change background color on hover */
+          }
+  
+          &.active {
+            background-color: #3546a40f;
+          }
+        }
+      }
+    }
+  }
+  
