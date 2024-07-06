@@ -1,3 +1,4 @@
+import authRoute from "./routes/auth.route.js";
 import conversationRoute from "./routes/conversation.route.js";
 import dotenv from "dotenv";
 import express from "express";
@@ -21,7 +22,10 @@ const connect = async () => {
     }
 };
 
-app.use("/api/users", userRoute);
+app.use(express.json());
+
+app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
 app.use("/api/gigs", gigRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/conversations", conversationRoute);
