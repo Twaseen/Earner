@@ -1,7 +1,10 @@
-import React,{useEffect,useRef,useState} from "react";
 import "./Gigs.scss";
-import { gigs } from "../../data";
+
+import React,{useEffect, useRef, useState} from "react";
+
 import GigCard from "../../components/gigCard/GigCard";
+import { gigs } from "../../data";
+
 // import newRequest from "../../utils/newRequest";
 
 // import { useQuery } from "@tanstack/react-query";
