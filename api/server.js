@@ -1,5 +1,6 @@
 import authRoute from "./routes/auth.route.js";
 import conversationRoute from "./routes/conversation.route.js";
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import express from "express";
 import gigRoute from "./routes/gig.route.js";
@@ -23,6 +24,7 @@ const connect = async () => {
 };
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
