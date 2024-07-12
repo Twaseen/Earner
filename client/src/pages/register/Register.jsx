@@ -1,7 +1,10 @@
-import React, { useState } from "react";
-import upload from "../../utils/upload";
 import "./Register.scss";
-import newRequest from "../../utils/newRequest";
+
+import React, { useState } from "react";
+
+import axios from "axios";
+import newRequest from "../../utils/newRequest.js";
+import upload from "../../utils/upload.js";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
@@ -38,7 +41,7 @@ function Register() {
         ...user,
         img: url,
       });
-      navigate("/")
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -52,7 +55,7 @@ function Register() {
           <input
             name="username"
             type="text"
-            placeholder="johndoe"
+            placeholder="username"
             onChange={handleChange}
           />
           <label htmlFor="">Email</label>
@@ -106,4 +109,4 @@ function Register() {
   );
 }
 
-export default Register; 
+export default Register;

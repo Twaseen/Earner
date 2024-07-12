@@ -1,17 +1,18 @@
-import axios from "axios";
+import axios from 'axios';
 
-const upload = async (file) => {
-  const data = new FormData();
-  data.append("file", file);
-  data.append("upload_preset", "Earner");
+const upload = async(file) => {
+  const data= new FormData();
+  data.append ('file' , file);
+  data.append ('upload_preset' , 'Earner'); 
 
   try {
-    const res = await axios.post("https://api.cloudinary.com/v1_1/mim/image/upload", data);
+    const res = await axios.post("https://api.cloudinary.com/v1_1/earner-mern/image/upload", 
+      data);
 
-    const { url } = res.data;
+    const {url} = res.data;
     return url;
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
 };
 
