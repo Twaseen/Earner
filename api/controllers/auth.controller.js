@@ -14,6 +14,14 @@ export const register = async (req, res, next) => {
     await newUser.save();
     res.status(201).send("User has been created.");
   } catch (err) {
+    if (err.code === 11000) {
+      if (err.keyPattern.username) {
+        return res.status(400).send("Username is already taken.");
+      }
+      if (err.keyPattern.email) {
+        return res.status(400).send("Email is already registered.");
+      }
+    }
     next(err);
   }
 };
