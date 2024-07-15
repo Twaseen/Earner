@@ -12,5 +12,5 @@ export const verifyToken = (req, res, next) => {
     req.isSeller = payload.isSeller;
     next()
   });
-  next();
+  
 };
