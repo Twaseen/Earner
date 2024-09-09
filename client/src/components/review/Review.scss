@@ -1,0 +1,71 @@
+.review {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px; /* Increased border radius for rounded corners */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 15px; /* Increased gap for better spacing */
+  
+      .pp {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        border: 1px solid #116a9e; /* Border around profile picture */
+      }
+  
+      .info {
+        display: flex;
+        flex-direction: column;
+  
+        span {
+          font-size: 18px;
+          font-weight: bold;
+          color: #0c476c; /* Dark teal for username */
+        }
+  
+        .country {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: gray;
+          font-size: 13px;
+  
+          img {
+            width: 20px;
+          }
+        }
+      }
+    }
+  
+    .stars {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+  
+      img {
+        height: 20px; /* Increased size for star icons */
+        width: 20px;
+      }
+  
+      span {
+        font-size: 17px;
+        font-weight: bold;
+        color: #ffc108; /* Bright gold for star rating */
+      }
+    }
+  
+    p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.5;
+    }
+  }
+  

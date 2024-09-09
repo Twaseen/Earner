@@ -11,25 +11,41 @@ import Message from "./pages/message/Message.jsx";
 import Gigs from "./pages/gigs/Gigs";
 import Orders from "./pages/orders/Orders.jsx";
 import Register from "./pages/register/Register.jsx";
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  useLocation,
+} from "react-router-dom";
 import "./App.scss";
 
 import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet
-} from "react-router-dom";
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
+
+//import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 function App() {
+  const queryClient = new QueryClient();
 
-  const Layout =() => {
+  const Layout = () => {
+    const location = useLocation();
+
+    const isLoginOrRegister =
+      location.pathname === "/login" || location.pathname === "/register";
+
     return (
       <div className="app">
-        <Navbar />
-        <Outlet />
-        <Footer />
+        <QueryClientProvider client={queryClient}>
+        {!isLoginOrRegister && <Navbar />}
+          <Outlet />
+          {!isLoginOrRegister && <Footer />}
+        </QueryClientProvider>
       </div>
     );
-  }
+  };
 
   const router = createBrowserRouter([
     {
@@ -79,14 +95,12 @@ function App() {
       ],
     },
   ]);
-  
+
   return (
     <div>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} / >
     </div>
   );
-  
-
 }
 
-export default App
+export default App;
