@@ -199,15 +199,25 @@ function Gig() {
   const { id } = useParams();
 
   const { isLoading, error, data } = useQuery({
-    queryKey: ["gig", id],
-    queryFn: () => newRequest.get(`/gigs/single/${id}`).then((res) => res.data),
+    queryKey: ["gig"],
+    queryFn: () => 
+      newRequest.get(`/gigs/single/${id}`).then((res) => {
+        return res.data
+      }),
   });
 
   const userId = data?.userId;
 
-  const { isLoading: isLoadingUser, error: errorUser, data: dataUser } = useQuery({
-    queryKey: ["user", userId],
-    queryFn: () => newRequest.get(`/users/${userId}`).then((res) => res.data),
+  const { 
+    isLoading: isLoadingUser, 
+    error: errorUser, 
+    data: dataUser 
+  } = useQuery({
+    queryKey: ["user"],
+    queryFn: () => 
+      newRequest.get(`/users/${userId}`).then((res) => {
+      return res.data
+    }),
     enabled: !!userId,
   });
 
