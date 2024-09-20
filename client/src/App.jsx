@@ -24,6 +24,8 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
+import Pay from "./pages/pay/Pay.jsx";
+import Success from "./pages/success/Success.jsx";
 
 //import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -39,7 +41,7 @@ function App() {
     return (
       <div className="app">
         <QueryClientProvider client={queryClient}>
-        {!isLoginOrRegister && <Navbar />}
+          {!isLoginOrRegister && <Navbar />}
           <Outlet />
           {!isLoginOrRegister && <Footer />}
         </QueryClientProvider>
@@ -92,13 +94,21 @@ function App() {
           path: "/message/:id",
           element: <Message />,
         },
+        {
+          path: "/pay/:id",
+          element: <Pay />,
+        },
+        {
+          path: "/success",
+          element: <Success />,
+        },
       ],
     },
   ]);
 
   return (
     <div>
-      <RouterProvider router={router} / >
+      <RouterProvider router={router} />
     </div>
   );
 }
